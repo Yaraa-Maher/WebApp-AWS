@@ -6,13 +6,13 @@ Visual documentation of the AWS scalable web application infrastructure.
 
 ## 1. Architecture Diagram
 
-![Architecture](./aws-images/Diagram.png)
+![Architecture](AWS-WebPage/aws-images/Diagram.png)
 
 ---
 
 ## 2. VPC Setup
 
-![VPC](./aws-images/VPC.png)
+![VPC](AWS-WebPage/aws-images/VPC.png)
 
 ---
 
@@ -21,7 +21,7 @@ Visual documentation of the AWS scalable web application infrastructure.
 - Two public subnets (EC2)
 - Two private subnets (RDS)
 
-![Subnets](./aws-images/Subnets.png)
+![Subnets](AWS-WebPage/aws-images/Subnets.png)
 
 ---
 
@@ -30,7 +30,7 @@ Visual documentation of the AWS scalable web application infrastructure.
 - EC2 SG for HTTP/HTTPS/SSH
 - ALB SG for public access
 
-![Security Groups](./aws-images/SecurityGroup.png)
+![Security Groups](AWS-WebPage/aws-images/SecurityGroup.png)
 
 ---
 
@@ -40,7 +40,7 @@ Visual documentation of the AWS scalable web application infrastructure.
 - Instance type: `t2.micro`
 - User data to install web server
 
-![Launch Template](./aws-images/LuanchTemplate.png)
+![Launch Template](AWS-WebPage/aws-images/LuanchTemplate.png)
 
 ---
 
@@ -48,7 +48,7 @@ Visual documentation of the AWS scalable web application infrastructure.
 
 - Managed by Auto Scaling Group
 
-![Instances](./aws-images/Instances.png)
+![Instances](AWS-WebPage/aws-images/Instances.png)
 
 ---
 
@@ -58,7 +58,7 @@ Visual documentation of the AWS scalable web application infrastructure.
 - Listener on port 80
 - Target group: EC2
 
-![ALB](./aws-images/LoadBalancer.png)
+![ALB](AWS-WebPage/aws-images/LoadBalancer.png)
 
 ---
 
