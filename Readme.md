@@ -33,7 +33,7 @@ A secure, highly available, and auto-scaling web application using:
 
 ## Architecture Diagram
 
-![Architecture](docs/architecture-diagram.png)
+![Architecture](docs/Diagram.png)
 
 ---
 
@@ -69,6 +69,7 @@ yum install -y httpd
 systemctl start httpd
 systemctl enable httpd
 echo "<h1>Welcome to My Scalable Web App</h1>" > /var/www/html/index.html
+```
 
 ### 5. Create ALB
 - aws elbv2 create-load-balancer --name web-alb --subnets subnet-1 subnet-2 --security-groups sg-123
@@ -100,5 +101,5 @@ aws autoscaling put-scaling-policy --policy-name scale-out --auto-scaling-group-
 - Visit ALB DNS name
 ```bash
 	http://web-ALB-1683263015.us-east-1.elb.amazonaws.com
-	
+```
 
