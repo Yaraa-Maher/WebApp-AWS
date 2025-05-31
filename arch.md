@@ -111,6 +111,5 @@ Accessed via the ALB DNS name
 ## Connect with Me
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/mohamed-elhariry-/)
-```bash
-LinkedIn : https://www.linkedin.com/in/mohamed-elhariry-/
-```
+
+![LinkedIn] : https://www.linkedin.com/in/mohamed-elhariry-/
