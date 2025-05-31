@@ -106,6 +106,5 @@ echo "<h1>Welcome to My Scalable Web App</h1>" > /var/www/html/index.html
 ## Connect with Me
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/mohamed-elhariry-/)
-```bash
-[LinkedIn] : (https://www.linkedin.com/in/mohamed-elhariry-/)
-```
+
+LinkedIn: https://www.linkedin.com/in/mohamed-elhariry-/
