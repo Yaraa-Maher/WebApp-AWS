@@ -107,3 +107,10 @@ Accessed via the ALB DNS name
 ![Web Page](./aws-images/WebPage.png)
 
 ---
+
+## Connect with Me
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/mohamed-elhariry-/)
+```bash
+LinkedIn : https://www.linkedin.com/in/mohamed-elhariry-/
+```

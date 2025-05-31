@@ -26,8 +26,7 @@ A secure, highly available, and auto-scaling web application using:
 - **Auto Scaling Group (ASG)**
 - **CloudWatch + SNS**
 - **IAM Roles**
-- **(Optional) Amazon RDS**
-- **HTML / Apache Web Server**
+- **Amazon RDS**
 
 ---
 
@@ -40,25 +39,28 @@ A secure, highly available, and auto-scaling web application using:
 ##  Step-by-Step Deployment Guide
 
 ### 1. **VPC Setup**
-- Use **default VPC** or create a new one.
+- Use **default VPC** or create a new one 
+- **VPC Name**: (ScalableAppVPC-vpc)
 - Public Subnets (2) for EC2 + Private Subnets (2) for RDS.
 - Attach Internet Gateway and configure route tables.
 
 ### 2. **Security Groups**
+- **Security Groups Name**: (ALP-SecurityGroups)
 - EC2 SG: Allow HTTP (80), HTTPS (443), SSH (22 from your IP)
 - ALB SG: Allow HTTP/HTTPS from anywhere (0.0.0.0/0)
-- RDS SG (optional): Allow DB ports only from EC2 SG
+- RDS SG: Allow DB ports only from EC2 SG
 
 ### 3. **IAM Role for EC2**
 Attach a role with:
 - `AmazonEC2ReadOnlyAccess`
 - `CloudWatchAgentServerPolicy`
 - `AmazonSSMManagedInstanceCore`
+- `AmazonS3Rlole`
 
 ### 4. **Launch Template**
+- **Launch Template Name**: (web-app-template)
 - AMI: Amazon Linux 2 or Ubuntu
-- Instance Type: `t2.micro` or `t3.micro`
-- User Data: install Apache and deploy `index.html`
+- Instance Type: `t2.micro`
 - Attach IAM Role
 
 Example `user-data`:
@@ -71,29 +73,26 @@ systemctl enable httpd
 echo "<h1>Welcome to My Scalable Web App</h1>" > /var/www/html/index.html
 ```
 
-### 5. Create ALB
-- aws elbv2 create-load-balancer --name web-alb --subnets subnet-1 subnet-2 --security-groups sg-123
+### 5. Create Application Load Balancer (ALB)
+- **ALB Name**: (web-ALB)
+- Listener on port 80
+- Target group: EC2
+- subnets: public subnet-1, public subnet-2 
+- security-groups: ALP-SecurityGroups
 
-### Create Target Group
-- aws elbv2 create-target-group --name web-tg --protocol HTTP --port 80 --vpc-id vpc-123
-
-### 6. Create ASG
-- aws autoscaling create-auto-scaling-group \
-	--auto-scaling-group-name web-asg \
- 	--launch-template "LaunchTemplateName=web-template,Version=1" \
- 	--min-size 2 --max-size 5 --desired-capacity 2 \
- 	--vpc-zone-identifier "subnet-1,subnet-2" \
-
-### Scale-out policy (CPU >80%)
-aws autoscaling put-scaling-policy --policy-name scale-out --auto-scaling-group-name web-asg --scaling-adjustment 1 --adjustment-type ChangeInCapacity
+### 6. Create Auto Scaling Group (ASG)
+- **ASG Name**: (web-ASG)
+- auto-scaling-group-name web-asg 
+- launch-template "LaunchTemplateName = web-app-template
+- min-size 2 , max-size 5 , desired-capacity 2 
+- vpc-zone-identifier "subnet-1,subnet-2" 
+- Scale-out policy (CPU >80%)
 
 ### 7. CloudWatch Alarm
-- aws cloudwatch put-metric-alarm \
- 	--alarm-name high-cpu \
-  	--metric-name CPUUtilization \
-  	--namespace AWS/EC2 \
- 	--threshold 80 \
-  	--alarm-actions "arn:aws:autoscaling:..."
+- aws cloudwatch put-metric-alarm 
+- alarm name:  SNS Alarm 
+- metric-name CPUUtilization 
+- threshold 80 
 
 ---
 
@@ -103,3 +102,10 @@ aws autoscaling put-scaling-policy --policy-name scale-out --auto-scaling-group-
 	http://web-ALB-1683263015.us-east-1.elb.amazonaws.com
 ```
 
+
+## Connect with Me
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/mohamed-elhariry-/)
+```bash
+LinkedIn : https://www.linkedin.com/in/mohamed-elhariry-/
+```
