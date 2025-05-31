@@ -112,4 +112,4 @@ Accessed via the ALB DNS name
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/mohamed-elhariry-/)
 
-![LinkedIn] : https://www.linkedin.com/in/mohamed-elhariry-/
+LinkedIn: https://www.linkedin.com/in/mohamed-elhariry-/
