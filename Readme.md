@@ -5,7 +5,7 @@ A secure, highly available, and auto-scaling web application using:
 - EC2 instances
 - Application Load Balancer (ALB)
 - Auto Scaling Groups (ASG)
-- (Optional) Amazon RDS
+- Amazon RDS
 - CloudWatch and SNS for monitoring
 
 ## Features
@@ -14,7 +14,7 @@ A secure, highly available, and auto-scaling web application using:
 - Auto Scaling based on CPU utilization
 - Web app hosted on EC2 instances across multiple Availability Zones
 - Real-time Monitoring and Notifications using CloudWatch + SNS
-- (Optional) RDS Multi-AZ database backend
+- RDS Multi-AZ database backend
 - IAM role-based permissions for secure access
 
 ---
@@ -40,7 +40,7 @@ A secure, highly available, and auto-scaling web application using:
 
 ### 1. **VPC Setup**
 - Use **default VPC** or create a new one 
-- **VPC Name**: (ScalableAppVPC-vpc)
+- **VPC Name**: ScalableAppVPC-vpc
 - Public Subnets (2) for EC2 + Private Subnets (2) for RDS.
 - Attach Internet Gateway and configure route tables.
 
@@ -63,7 +63,7 @@ Attach a role with:
 - Instance Type: `t2.micro`
 - Attach IAM Role
 
-Example `user-data`:
+`user-data`:
 ```bash
 #!/bin/bash
 yum update -y
@@ -93,6 +93,14 @@ echo "<h1>Welcome to My Scalable Web App</h1>" > /var/www/html/index.html
 - alarm name:  SNS Alarm 
 - metric-name CPUUtilization 
 - threshold 80 
+
+### 8. (Optional) RDS - Multi-AZ DB
+- **Engine**: MySQL/PostgreSQL
+- **Multi-AZ**: Enabled
+- **VPC Name**: ScalableAppVPC-vpc
+- **Public Access**: No
+- **Security Group**: Same as EC2
+- **Connect**: Use RDS Endpoint in app code
 
 ---
 
