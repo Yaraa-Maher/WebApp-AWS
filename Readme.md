@@ -64,10 +64,10 @@ echo "<h1>Welcome to My Scalable Web App</h1>" > /var/www/html/index.html
 
 ### 5. Application Load Balancer (ALB)
 - **ALB Name**: web-ALB
-- Listener on port 80
+- Listen on port 80
 - Target group: EC2
 - Subnets: public subnet-1, public subnet-2
-- Security Groups: ALP-SecurityGroups
+- Security Group: ALP-SecurityGroups
 
 ### 6. Auto Scaling Group (ASG)
 - **ASG Name**: web-ASG
