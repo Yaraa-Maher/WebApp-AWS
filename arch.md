@@ -1,115 +1,111 @@
 # Project Diagrams and Screenshots
 
-Visual documentation of the AWS scalable web application infrastructure.
+**Visual Documentation of the AWS Scalable Web Application Infrastructure**
 
 ---
 
 ## 1. Architecture Diagram
 
-![Architecture](./aws-images/Diagram.png)
+High-level overview of the infrastructure components.
+
+![Architecture](./images/Diagram.png)
 
 ---
 
 ## 2. VPC Setup
 
-![VPC](./aws-images/VPC.png)
+Custom Virtual Private Cloud with isolated networking components.
+
+![VPC](./images/VPC.png)
 
 ---
 
-## 3. Subnets Configuration
+## 3. Subnet Configuration
 
-- Two public subnets (EC2)
-- Two private subnets (RDS)
+- **2 Public Subnets** (for EC2 Instances)
+- **2 Private Subnets** (for RDS Database)
 
-![Subnets](./aws-images/Subnets.png)
+![Subnets](./images/Subnets.png)
 
 ---
 
 ## 4. Security Groups
 
-- EC2 SG for HTTP/HTTPS/SSH
-- ALB SG for public access
+- **EC2 Security Group**: Allows HTTP (80), HTTPS (443), and SSH (22)
+- **ALB Security Group**: Allows inbound traffic from the internet
 
-![Security Groups](./aws-images/SecurityGroup.png)
+![Security Groups](./images/SecurityGroup.png)
 
 ---
 
-## 5. Launch Template or EC2 Configuration
+## 5. Launch Template / EC2 Configuration
 
-- AMI: Amazon Linux 2
-- Instance type: `t2.micro`
-- User data to install web server
+- **AMI**: Amazon Linux 2  
+- **Instance Type**: `t2.micro`  
+- **User Data**: Web server installation script (e.g., Apache/Flask setup)
 
-![Launch Template](./aws-images/LuanchTemplate.png)
+![Launch Template](./images/LuanchTemplate.png)
 
 ---
 
 ## 6. EC2 Instances
 
-- Managed by Auto Scaling Group
+Instances automatically launched and managed by Auto Scaling Group.
 
-![Instances](./aws-images/Instances.png)
+![Instances](./images/Instances.png)
 
 ---
 
 ## 7. Application Load Balancer (ALB)
 
-- Internet-facing
-- Listener on port 80
-- Target group: EC2
+- **Internet-facing**  
+- **Port**: 80 (HTTP)  
+- **Target Group**: Points to EC2 Instances
 
-![ALB](./aws-images/LoadBalancer.png)
+![ALB](./images/LoadBalancer.png)
 
 ---
 
 ## 8. Auto Scaling Group (ASG)
 
-- Min: 2, Desired: 2, Max: 5
-- CPU-based scaling policy
+- **Min**: 2, **Desired**: 2, **Max**: 5  
+- **Scaling Policy**: Based on CPU Utilization
 
-![ASG](./aws-images/AutoScalingGroups.png)
+![ASG](./images/AutoScaling.png)
 
 ---
 
 ## 9. Amazon RDS (Multi-AZ)
 
-- MySQL/PostgreSQL engine
-- Private subnet
-- No public access
+- **Engine**: MySQL or PostgreSQL  
+- **Deployment**: Multi-AZ for high availability  
+- **Access**: Private subnets only, no public access
 
-![RDS](./aws-images/RDS-DB.png)
+![RDS](./images/RDS-DB.png)
 
 ---
 
-## 10. CloudWatch and SNS Monitoring
+## 10. Monitoring with CloudWatch & SNS
 
-- Alarms based on CPU usage
-- SNS Topic created and email subscribed
+- CloudWatch Alarms to monitor CPU usage  
+- SNS Topic for sending email notifications
 
-![CloudWatch](./aws-images/Cloudwatch.png)
+![CloudWatch](./images/Cloudwatch.png)
 
 ---
 
 ## 11. Alarm Actions
 
-- Scale out: CPU > 80%
-- Scale in: CPU < 30%
-- Email notifications via SNS
+- **Scale Out**: CPU > 80%  
+- **Scale In**: CPU < 30%  
+- **Notifications**: Email alerts via SNS
 
-![Alarms](./aws-images/SNS.png)
-
----
-
-## 12. Web Page - Testing the Application
-
-Accessed via the ALB DNS name
-
-![Web Page](./aws-images/WebPage.png)
+![Alarms](./images/SNS.png)
 
 ---
 
-## Connect with Me
+## 12. Web Application - Live Test
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/mohamed-elhariry-/)
+Website successfully accessed using the ALB DNS name.
 
-LinkedIn: https://www.linkedin.com/in/mohamed-elhariry-/
+![Web Page](./images/WebPage.png)

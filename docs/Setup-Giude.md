@@ -6,13 +6,13 @@ Visual documentation of the AWS scalable web application infrastructure.
 
 ## 1. Architecture Diagram
 
-![Architecture](../aws-images/Diagram.png)
+![Architecture](../images/Diagram.png)
 
 ---
 
 ## 2. VPC Setup
 
-![VPC](../aws-images/VPC.png)
+![VPC](../images/VPC.png)
 
 ---
 
@@ -21,7 +21,7 @@ Visual documentation of the AWS scalable web application infrastructure.
 - Two public subnets (EC2)
 - Two private subnets (RDS)
 
-![Subnets](../aws-images/Subnets.png)
+![Subnets](../images/Subnets.png)
 
 ---
 
@@ -30,7 +30,7 @@ Visual documentation of the AWS scalable web application infrastructure.
 - EC2 SG for HTTP/HTTPS/SSH
 - ALB SG for public access
 
-![Security Groups](../aws-images/SecurityGroup.png)
+![Security Groups](../images/SecurityGroup.png)
 
 ---
 
@@ -40,7 +40,7 @@ Visual documentation of the AWS scalable web application infrastructure.
 - Instance type: `t2.micro`
 - User data to install web server
 
-![Launch Template](../aws-images/LuanchTemplate.png)
+![Launch Template](../images/LuanchTemplate.png)
 
 ---
 
@@ -48,7 +48,7 @@ Visual documentation of the AWS scalable web application infrastructure.
 
 - Managed by Auto Scaling Group
 
-![Instances](../aws-images/Instances.png)
+![Instances](../images/Instances.png)
 
 ---
 
@@ -58,7 +58,7 @@ Visual documentation of the AWS scalable web application infrastructure.
 - Listener on port 80
 - Target group: EC2
 
-![ALB](../aws-images/LoadBalancer.png)
+![ALB](../images/LoadBalancer.png)
 
 ---
 
@@ -67,7 +67,7 @@ Visual documentation of the AWS scalable web application infrastructure.
 - Min: 2, Desired: 2, Max: 5
 - CPU-based scaling policy
 
-![ASG](../aws-images/AutoScalingGroups.png)
+![ASG](../images/AutoScaling.png)
 
 ---
 
@@ -77,7 +77,7 @@ Visual documentation of the AWS scalable web application infrastructure.
 - Private subnet
 - No public access
 
-![RDS](../aws-images/RDS-DB.png)
+![RDS](../images/RDS-DB.png)
 
 ---
 
@@ -86,7 +86,7 @@ Visual documentation of the AWS scalable web application infrastructure.
 - Alarms based on CPU usage
 - SNS Topic created and email subscribed
 
-![CloudWatch](../aws-images/Cloudwatch.png)
+![CloudWatch](../images/Cloudwatch.png)
 
 ---
 
@@ -96,7 +96,7 @@ Visual documentation of the AWS scalable web application infrastructure.
 - Scale in: CPU < 30%
 - Email notifications via SNS
 
-![Alarms](../aws-images/SNS.png)
+![Alarms](../images/SNS.png)
 
 ---
 
@@ -104,6 +104,6 @@ Visual documentation of the AWS scalable web application infrastructure.
 
 Accessed via the ALB DNS name
 
-![Web Page](../aws-images/WebPage.png)
+![Web Page](../images/WebPage.png)
 
 ---
